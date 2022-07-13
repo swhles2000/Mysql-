@@ -1,0 +1,48 @@
+⦁	DDL和DML
+⦁	数据库定义语言（DDL）
+1.	创建数据库
+
+CREATE DATABASE test	#新建数据库
+
+1.	删除数据库
+
+DROP DATABASE test	#删除数据库
+
+1.	显示所有数据库
+
+SHOW DATABASES	#展示所有数据库
+
+1.	新建数据表
+
+CREATE TABLE goods(
+	goodsID int PRIMARY KEY auto_increment,
+	goodsCode varchar(20) not null,
+	goodsName varchar(50) not null,
+	category varchar(20),
+	unitPrice DECIMAL(8,2)
+)
+
+ 
+
+1.	新增/修改表数据
+
+ 
+
+
+⦁	数据库操作语言
+1.	插入语句
+
+insert into customers (customerID,loginID,password,cName,address,phone)
+VALUES (null,'1','123456','Jack','南京理工大学',176818)
+
+1.	修改语句
+
+UPDATE customers set cName='Kobe',password='666' where customerID=1
+
+UPDATE customers set cName='Jordan',password='777'
+
+UPDATE customers set cName='James',password='888',phone=2 where loginID='1'
+
+1.	删除语句
+
+DELETE from customers where loginID=1
