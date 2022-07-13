@@ -1,0 +1,71 @@
+1.	Select 查询
+语法：select * from 表名
+
+查询所有的列：select * from customers
+
+查询部分列：select cName,address,phone from customers;
+
+可以给列起别名：select cName as 姓名,address as 地址,phone as 手机号 from customers;
+
+省略as符号：select cName 姓名，address 地址，phone 手机号 from customers;
+
+对单列数据去重：select DISTINCT loginID from customers
+
+1.	Sql语句的运算符
+主要了解比较运算符和逻辑运算符在where条件中的运用
+比较运算符：=，<=,<,>=,> ,is null,is not null
+算符运算符：and（逻辑与），or（逻辑或）
+
+select * from goods where category='书籍'
+
+select * from goods where unitPrice>100
+
+select * from goods where unitPrice<=50
+
+select * from goods where category='生活电器' and unitPrice>200 
+and goodsName like '%美的%'
+
+select * from goods where category='书籍' OR unitPrice<100
+
+1.	排序和分页
+
+按照单列进行排序
+select * from goods order by unitPrice desc
+
+select * from goods order by unitPrice asc
+
+默认是按照asc，也就是升序进行排列
+
+按照多列进行排序
+select * from goods order by category,unitPrice desc
+先按照第一列进行排序，然后第一列的值相同，才会使用第二列进行排序
+
+获取当前表的记录总数：select count(*) from goods
+
+使用limit进行分页：
+select * from goods limit 0,2		#第一页
+
+select * from goods limit 2,2		#第二页
+
+select * from goods limit 4,2		#第三页
+
+1.	模糊查询
+
+Like模糊查询
+%：可以匹配一个或者多个字符
+_（下划线）：只能匹配一个字符
+select * from goods where goodsName like '%李开复%'	#前后匹配
+
+select * from goods where goodsName like '李开复%'	#后匹配
+
+select * from goods where goodsName like '%李开复)'	#前匹配
+
+select * from goods where goodsName like '%李开复_'	#前匹配
+
+in：在集合范围内进行查询并返回符合条件的查询结果
+
+select * from goods where category in ('生活电器','体育用品','书籍','软件技术')
+
+Between...and:在一定范围内进行查询，between后面是起始值，and后面是结束值
+
+select * from goods where unitPrice between 199 and 299
