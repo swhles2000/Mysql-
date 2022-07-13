@@ -1,0 +1,56 @@
+⦁	MySQL函数
+⦁	数学函数
+
+select ceil(2.1)	#向上取整
+
+select FLOOR(2.1)	#向下取整
+
+select RAND(),RAND(),RAND(),RAND()  	#产生0~1之间的随机数
+
+select rand(1),rand(1),rand(2),rand(2),rand(3),rand(3)			#使用种子值产生随机数
+
+select ROUND(2.6),ROUND(2.1)		#3 2		#四舍五入
+
+select ROUND(2.74,1)	#2.7				#四舍五入，小数点后保留一位
+
+⦁	控制流函数
+⦁	If(expr,v1,v2)函数,根据条件表达式的结果，如果为true，则使用v1；如果为false，		则使用v2值
+select goodsName 名称,unitPrice 单价,if(unitPrice>=100,'贵重物品','普通物品') 
+是否普通  from goods
+
+⦁	ifnull函数
+select goodsName,IFNULL(category,'暂未分类') from goods
+
+⦁	字符串函数
+1.	Char_length():返回字符的长度
+2.	Length()：返回字节的长度
+3.	CONCAT(s1,s2,...):将多个字符串连接成一个字符串
+4.	Insert(str1,pos,len,str2):替换指定位置的字符串，但是只能替换一个
+5.	Replace(str1,fromstr,tostr):替换所有符合条件的字符串
+6.	Substr(str1,pos,len):截取指定位置，指定长度的字符串
+
+
+⦁	日期函数
+1.	CURDATE()：返回系统当前时间，格式为，年-月-日
+2.	CURTIME():返回系统当前时间，格式为：时-分-秒
+3.	Now():返回系统当前时间：格式为：年-月-日 时:分:秒
+4.	Sysdate():返回系统当前时间，格式为：年-月-日 时:分:秒
+5.	DAYNAME(NOW()):返回当前是星期几，返回值是英文单词
+6.	DAYOFWEEK(NOW()):返回的是数字，范围是1~7，星期日为1，星期一为2....
+7.	WEEKDAY(NOW()):返回值也是数字，范围是0~6，星期一是0，星期二是1....
+8.	DATE_FORMAT(date,format):格式化输出时间
+9.	DATEDIFF(date1,date2):比较两个日期相隔几天，date1-date2
+10.	ADDDATE(date,INTERVAL expr type):对日期进行加减
+
+⦁	系统信息函数
+1.	Version():获取系统当前版本
+2.	User():获取当前用户信息
+3.	CHARSET(str):获取当前默认的字符集编码
+4.	LAST_INSERT_ID():获取最新的自动增长的ID
+
+
+6.加密函数
+1. PASSWORD(str):对目标字符串进行加密，不可逆
+2.MD5(str):对目标字符串进行加密，不可逆
+3. encode(str,pass_str):对目标字符串进行加密，可逆
+4. decode(str,pass_str):对目标字符串进行解密
