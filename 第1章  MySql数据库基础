@@ -1,0 +1,7 @@
+一、数据库简介
+1、数据库：DataBase，用于存储数据的存储空间。存储数据的“仓库”
+2、DBMS：DataBase Management System，是一种操作和管理数据库的大型软件，用于建立、使用和维护数据库。数据库管理系统。
+3、DBS：DataBase System，数据库系统。包括数据库（存储相关数据的集合），数据库管理系统，数据库管理员，用户和应用程序
+二、Mysql服务
+启动服务   net   start   mysql56(服务名)
+停止服务    net    stop   mysql56
