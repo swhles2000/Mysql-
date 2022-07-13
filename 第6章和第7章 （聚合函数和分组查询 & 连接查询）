@@ -1,0 +1,42 @@
+⦁	聚合函数，sum,max,min，经常是数值类型的列
+
+1.	Sum(column):求和函数，对查询的结果集进行指定列的求和
+2.	Max(column)：求最大值，对查询的结果集进行指定列的最大值计算
+3.	Min(column)：求最小值，对查询的结果集进行指定列的最小值计算
+
+⦁	avg和count函数，求平均值和返回结果集记录总数
+
+1.	AVG(column)：求平均值，对查询的结果集进行指定列的平均数计算
+2.	Count(*):返回结果集的总数
+3.	Count(column):对指定列进行计数，空值（null）是不参与计算的
+
+⦁	group by子句
+按照单列进行分组，也可以按照多列进行分组，从左往右的顺序依次进行分组，比如先按照第一列进行分组，然后第一列值相同的情况下，才会按照第二列进行分组，依次类推；
+
+Where条件是在group by子句之前执行的，sql的位置也要写在group by子句之前
+
+Having条件是在group by 子句之后执行的，sql的位置也要写在group by子句之后
+
+
+⦁	连接查询
+1.	笛卡尔积
+关键字：CROSS JOIN
+用法：两张表进行笛卡尔积（交叉连接），第一张表的每一条记录去和第二张表的每一条记录做连接，最后返回的记录总数是两张表的记录总数的乘积；
+
+1.	内连接
+关键字：INNER JOIN（INNER是可以被省略）
+语法：select * from A a inner join B b on a.column = b.column [ where a.column=....]
+连接过程：A表中的每一条记录都会和B表进行比较，根据连接谓词是否相等，决定两条记录是否连接；
+ 
+1.	多表连接
+其实也是两两连接，然后根据连接条件将3张表连接在一起
+语法：select * from A join B on A.column=b.column join C on A.column=C.column
+
+简单语法：select * from A,B,C where A.column = B.column and A.column= C.column and .... or....
+ 
+
+1.	外连接
+
+左外连接：以左边的表为主表，然后根据连接条件匹配右边的表，如果匹配上了，则两行合并为一行显示在查询结果中；如果匹配不上，还是会把左边的记录显示出来，然后右边的表字段全部为空（null）；
+
+右外连接：以右边的表为主表，然后去匹配左边的表；规则同上；
